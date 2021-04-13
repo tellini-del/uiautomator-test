@@ -16,7 +16,7 @@ class UnauthorizedReviewToRegister: AbstractApplicationTest<Ozon>(Ozon()) {
         clickSearch()
         typeToSearch("философия java")
         tapAboutProduct()
-        searchForText("Задать вопрос")
-
+        searchForText("Написать отзыв")
+        checkPageName()
     }
 }

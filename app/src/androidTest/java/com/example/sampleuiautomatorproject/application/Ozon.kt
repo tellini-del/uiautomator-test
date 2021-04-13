@@ -28,6 +28,7 @@ class Ozon : AbstractApplication("ru.ozon.app.android") {
     private val searchMailField = byStringRes("ru.ozon.app.android:id/fieldEt")
     private val searchSubmitButton = byStringRes("ru.ozon.app.android:id/submitBtn")
     private val searchHintText = byStringRes("ru.ozon.app.android:id/textinput_error")
+    private val searchRegistrationPageName = byStringRes("ru.ozon.app.android:id/titleTv")
     private val otecGroup = byStringRes("ru.ozon.app.android:id/contentElementsVAL")
 
     fun clickSearch() {
@@ -105,6 +106,8 @@ class Ozon : AbstractApplication("ru.ozon.app.android") {
 
     @Throws(UiObjectNotFoundException::class)
     fun searchForText(searchText: String?) {
+        searchAddToFav.waitFindObject().waitIsClickable(true, 5000)
+        searchAddToFav.waitFindObject()
         var textScroll: UiScrollable? = null
         var text: UiObject? = null
         if (searchText != null) {
@@ -113,6 +116,10 @@ class Ozon : AbstractApplication("ru.ozon.app.android") {
             text = UiObject(UiSelector().text(searchText))
             text.click()
         }
+    }
+
+    fun checkPageName() {
+        assertTrue("Открывается страница регистрации", searchRegistrationPageName.waitFindObject().text == "Вход или регистрация")
     }
 
 }

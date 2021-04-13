@@ -5,8 +5,8 @@ import androidx.test.uiautomator.UiObject2
 import androidx.test.uiautomator.Until
 import com.example.sampleuiautomatorproject.util.device
 
-private val defaultTimeout = 100.secondsToMillis()
-private val defaultLongTimeout = 1000000000.secondsToMillis()
+private val defaultTimeout = 120.secondsToMillis()
+private val defaultLongTimeout = 1000.secondsToMillis()
 
 fun BySelector.findObject(): UiObject2 {
     return device.findObject(this)
